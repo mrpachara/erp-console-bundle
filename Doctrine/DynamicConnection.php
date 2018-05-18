@@ -2,8 +2,6 @@
 
 namespace Erp\Bundle\ConsoleBundle\Doctrine;
 
-use ReflectionClass;
-use ReflectionProperty;
 use Doctrine\DBAL\Connection as DoctrineConnection;
 use Erp\Bundle\ConsoleBundle\Domain\Service\DynamicConnectionService;
 
@@ -21,8 +19,8 @@ class DynamicConnection extends DoctrineConnection{
     // TODO: change to specific Exception
     if(null === $this->_service) throw new \Exception("Dynamic connection service is not specific.");
 
-    $reflectionClass = new ReflectionClass('Doctrine\DBAL\Connection');
-    /** @var ReflectionProperty */
+    $reflectionClass = new \ReflectionClass('Doctrine\DBAL\Connection');
+    /** @var \ReflectionProperty */
     $reflectionProperty = $reflectionClass->getProperty('_params');
     $reflectionProperty->setAccessible(true);
 

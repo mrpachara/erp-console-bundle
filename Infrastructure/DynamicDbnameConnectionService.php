@@ -25,7 +25,7 @@ class DynamicDbnameConnectionService implements DynamicConnectionService{
   public function extendParams(array $params){
     $dbname = $this->getDbname();
     // TODO: change to specific Exception
-    if(empty($dbname)) throw new \Exception("Unspecific Database name!!!");
+    //if(empty($dbname)) throw new \Exception("Unspecific Database name!!!");
 
     $params['dbname'] = $dbname;
 
